@@ -42,6 +42,7 @@ colorscheme hybrid
 let NERDTreeWinSize=25
 map <c-n> :NERDTreeToggle<CR>
 autocmd bufenter * if(winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"Abre NERDTree al iniciar vim
 "autocmd vimenter * NERDTree
 
 "Airline settings"
