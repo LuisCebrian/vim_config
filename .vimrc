@@ -56,4 +56,4 @@ let g:airline#extensions#tmuxline#enabled=1
 "AutocomplPo settings"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
 let g:acp_behaviorKeywordLength = 3
-
+let g:acp_behaviorKeywordIgnores = ["while","for","def","class"]
