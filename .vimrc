@@ -19,6 +19,12 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+"Automatic reloading of .vimrc
+autocmd! bufwritepost .vimrc source %
+
+"Use the same clipboard as system
+set clipboard=unnamed
+
 syntax on
 filetype on
 filetype plugin indent on " enable loading indent file for filetype
@@ -42,7 +48,6 @@ colorscheme hybrid
 let NERDTreeWinSize=25
 map <c-n> :NERDTreeToggle<CR>
 autocmd bufenter * if(winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-"Abre NERDTree al iniciar vi
 "autocmd vimenter * NERDTree
 
 "Airline settings"
@@ -55,5 +60,5 @@ let g:airline#extensions#tmuxline#enabled=1
 
 "AutocomplPo settings"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
-let g:acp_behaviorKeywordLength = 3
-let g:acp_behaviorKeywordIgnores = ["while","for","def","class"]
+let g:acp_behaviorKeywordLength = 2
+let g:acp_behaviorKeywordIgnores = ["while","for","if","def","class"]
