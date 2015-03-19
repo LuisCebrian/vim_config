@@ -13,17 +13,38 @@ set t_Co=256
 :nmap <c-s> :w<CR>
 :imap <c-s> <Esc>:w<CR>a
 :imap <c-s> <Esc><c-s>
+
 " Window movement
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
-"Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
+"Remap VIM 0 to first non-blank character
+map 0 ^
 
 "Use the same clipboard as system
 set clipboard=unnamed
+
+"Rebind <Leader> key
+let mapleader = ","
+
+"Easy moving between tabs
+map <Leader>n <esc>:tabprevious<CR>
+map <Leader>m <esc>:tabnext<CR>
+
+"Better indentation
+vnoremap < <gv
+vnoremap > >gv
+
+"Folding
+nnoremap <space> za
+vnoremap <space> zf
+nnoremap <Leader><space> zi
+
+set foldmethod=indent
+set foldnestmax=1
+set foldlevel=0
 
 syntax on
 filetype on
@@ -35,8 +56,6 @@ set softtabstop=4
 set shiftwidth=4
 
 set background=dark
-
-set makeprg=javac\ *.java
 
 execute pathogen#infect()
 
@@ -58,7 +77,16 @@ let g:airline#extensions#tabline#enabled=1
 let g:tmuxline_preset = 'full'
 let g:airline#extensions#tmuxline#enabled=1
 
+"Jedi-vim settings
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#completions_enabled = 0
+let g:jedi#completions_command = ""
+let g:jedi#show_call_signatures = "1"
 "AutocomplPo settings"
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
-let g:acp_behaviorKeywordLength = 2
-let g:acp_behaviorKeywordIgnores = ["while","for","if","def","class"]
+"inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
+"let g:acp_behaviorKeywordLength = 2
+"let g:acp_enableAtStartup = 1
+"let g:acp_behaviorKeywordIgnores = ["while","for","if","def","class"]
+
